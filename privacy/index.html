@@ -1,115 +1,166 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidade — Series Tracker</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-        h1 {
-            color: #111;
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        h2 {
-            color: #222;
-            font-size: 18px;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 5px;
-        }
-        p {
-            font-size: 15px;
-            color: #444;
-            margin-bottom: 15px;
-        }
-        ul {
-            margin-bottom: 15px;
-            padding-left: 20px;
-        }
-        li {
-            font-size: 15px;
-            color: #444;
-            margin-bottom: 10px;
-        }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .updated {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .footer-note {
-            margin-top: 40px;
-            font-style: italic;
-            color: #777;
-            font-size: 14px;
-        }
-        strong {
-            color: #222;
-        }
-    </style>
-</head>
-<body>
+import React from 'react';
+import { ScrollView, Text, StyleSheet, Linking } from 'react-native';
 
-    <h1>Política de Privacidade — Series Tracker</h1>
-    <div class="updated">Última atualização: 26 de julho de 2026</div>
+const APPODEAL_PRIVACY_URL = 'https://www.appodeal.com/privacy-policy';
+const CONTACT_EMAIL = 'seriestrackeraplicativo@gmail.com';
 
-    <p>O Series Tracker ("o aplicativo", "o site", "nós") valoriza a privacidade dos seus usuários. Esta Política de Privacidade explica como coletamos, usamos, armazenamos e protegemos suas informações ao utilizar nosso aplicativo móvel e nossa versão web.</p>
+/**
+ * Renders a section heading followed by a paragraph.
+ */
+function Section({ title, children }) {
+  return (
+    <>
+      <Text style={styles.heading}>{title}</Text>
+      <Text style={styles.paragraph}>{children}</Text>
+    </>
+  );
+}
 
-    <h2>1. Quem somos</h2>
-    <p>O Series Tracker é um serviço (disponível via aplicativo móvel e web) desenvolvido para ajudar os usuários a acompanhar séries de TV, registrar o progresso de episódios, gerenciar listas de favoritos e salvar históricos de visualização.</p>
+/**
+ * Renders a single bullet item. `label` is bolded, `children` is the
+ * regular-weight continuation of the sentence.
+ */
+function Bullet({ label, children }) {
+  return (
+    <Text style={styles.bullet}>
+      • <Text style={styles.bold}>{label}</Text> {children}
+    </Text>
+  );
+}
 
-    <h2>2. Informações que coletamos</h2>
-    <p>Para oferecer o serviço de sincronização entre dispositivos e login, coletamos os seguintes dados:</p>
-    <ul>
-        <li><strong>Informações da Conta Google:</strong> Ao fazer login com sua Conta Google, recebemos seu nome, e-mail e um identificador único de usuário (ID do Google). Não temos acesso à sua senha nem a outros dados da sua conta (como Gmail, contatos ou Drive).</li>
-        <li><strong>Dados de Uso e Conteúdo:</strong> Armazenamos as séries salvas, episódios marcados como assistidos, progresso, notas e preferências que você cria dentro do app.</li>
-        <li><strong>Dados de Dispositivo e Anúncios:</strong> Para exibir anúncios e manter o app gratuito, a Appodeal (nossa plataforma de mediação de anúncios no app) e as redes de publicidade parceiras que ela integra podem coletar automaticamente: seu <strong>identificador de publicidade</strong> (Advertising ID / GAID, no Android), seu <strong>endereço IP</strong> (usado, entre outras finalidades, para estimar sua localização aproximada), informações do dispositivo (modelo, sistema operacional, idioma) e cookies/identificadores técnicos semelhantes. Na versão web, o Google AdSense pode coletar dados equivalentes (IP, cookies e identificadores de publicidade do navegador). Para mais detalhes sobre como a Appodeal e suas redes parceiras tratam esses dados, consulte a <a href="https://www.appodeal.com/privacy-policy" target="_blank" rel="noopener noreferrer">Política de Privacidade da Appodeal</a>.</li>
-    </ul>
+/**
+ * Inline link to the Appodeal privacy policy, reused in a couple of sections.
+ */
+function AppodealLink({ children }) {
+  return (
+    <Text style={styles.link} onPress={() => Linking.openURL(APPODEAL_PRIVACY_URL)}>
+      {children}
+    </Text>
+  );
+}
 
-    <h2>3. Como usamos seus dados</h2>
-    <p>Utilizamos suas informações exclusivamente para: autenticar sua identidade, manter sua sessão ativa com segurança, sincronizar seu progresso em tempo real entre o app e a web, permitir o backup dos seus dados e veicular anúncios para manter o serviço gratuito. Não vendemos ou compartilhamos seus dados para marketing de terceiros.</p>
+export default function PrivacyPolicyScreen() {
+  const lastUpdated = new Date().toLocaleDateString('pt-BR');
 
-    <h2>4. Publicidade e Cookies</h2>
-    <p>Utilizamos o Appodeal (no app) e o Google AdSense (na web) para exibir anúncios. O Appodeal é uma plataforma de mediação que pode veicular anúncios de diferentes redes parceiras. Para isso, esses serviços podem coletar seu <strong>identificador de publicidade (Advertising ID)</strong>, seu <strong>endereço IP</strong> e usar cookies e identificadores semelhantes para personalizar e medir o desempenho dos anúncios. Você pode gerenciar suas preferências de anúncios acessando adssettings.google.com, e a tela de consentimento exibida pelo próprio app na primeira abertura (para usuários na União Europeia/Reino Unido). Recomendamos a leitura da <a href="https://www.appodeal.com/privacy-policy" target="_blank" rel="noopener noreferrer">Política de Privacidade da Appodeal</a> para mais informações sobre como as redes de anúncios mediadas por ela tratam seus dados.</p>
+  return (
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <Text style={styles.title}>Política de Privacidade — Series Tracker</Text>
+      <Text style={styles.updated}>Última atualização: {lastUpdated}</Text>
 
-    <h2>5. Armazenamento e segurança</h2>
-    <p>Seus dados de progresso e perfil são armazenados em um banco de dados seguro (Cloudflare D1), vinculados de forma protegida apenas ao seu ID exclusivo da conta Google. Adotamos padrões razoáveis da indústria para proteger suas informações contra acesso não autorizado.</p>
+      <Text style={styles.paragraph}>
+        O Series Tracker ("o aplicativo", "o site", "nós") valoriza a privacidade dos seus usuários.
+        Esta Política de Privacidade explica como coletamos, usamos, armazenamos e protegemos suas
+        informações ao utilizar nosso aplicativo móvel e nossa versão web.
+      </Text>
 
-    <h2>6. Seus direitos e exclusão de dados</h2>
-    <p>Você tem total controle sobre seus dados e pode gerenciá-los diretamente no aplicativo/site:</p>
-    <ul>
-        <li><strong>Exportação de Dados:</strong> É possível exportar uma cópia do seu histórico e progresso em formato de arquivo na área de configurações.</li>
-        <li><strong>Exclusão Definitiva da Conta:</strong> Você pode excluir permanentemente sua conta e todos os seus dados a qualquer momento clicando no botão "Excluir Conta" nas configurações. O processo é imediato e irreversível.</li>
-    </ul>
+      <Section title="1. Quem somos">
+        O Series Tracker é um serviço (disponível via aplicativo móvel e web) desenvolvido para ajudar
+        os usuários a acompanhar séries de TV, registrar o progresso de episódios, gerenciar listas de
+        favoritos e salvar históricos de visualização.
+      </Section>
 
-    <h2>7. Dados de crianças</h2>
-    <p>O Series Tracker não é direcionado a crianças menores de 13 anos e não coletamos intencionalmente dados desse público.</p>
+      <Text style={styles.heading}>2. Informações que coletamos</Text>
+      <Text style={styles.paragraph}>
+        Para oferecer o serviço de sincronização entre dispositivos e login, coletamos os seguintes dados:
+      </Text>
 
-    <h2>8. Alterações nesta política</h2>
-    <p>Esta política pode ser atualizada periodicamente. A data da última modificação estará sempre indicada no topo desta página.</p>
+      <Bullet label="Informações da Conta Google:">
+        Ao fazer login com sua Conta Google, recebemos seu nome, e-mail e um identificador único de
+        usuário (ID do Google). Não temos acesso à sua senha nem a outros dados da sua conta (como
+        Gmail, contatos ou Drive).
+      </Bullet>
 
-    <h2>9. Contato</h2>
-    <p>Dúvidas ou solicitações relacionadas a esta política podem ser enviadas para o e-mail: <strong>seriestrackeraplicativo@gmail.com</strong></p>
+      <Bullet label="Dados de Uso e Conteúdo:">
+        Armazenamos as séries salvas, episódios marcados como assistidos, progresso, notas e
+        preferências que você cria dentro do app.
+      </Bullet>
 
-    <div class="footer-note">
-        Consulte também os nossos Termos de Serviço, disponíveis na tela de Configurações do aplicativo.
-    </div>
+      <Text style={styles.bullet}>
+        • <Text style={styles.bold}>Dados de Dispositivo e Anúncios:</Text> Para exibir anúncios e manter
+        o app gratuito, a Appodeal (nossa plataforma de mediação de anúncios no app) e as redes de
+        publicidade parceiras que ela integra podem coletar automaticamente: seu{' '}
+        <Text style={styles.bold}>identificador de publicidade</Text> (Advertising ID / GAID, no
+        Android), seu <Text style={styles.bold}>endereço IP</Text> (usado, entre outras finalidades,
+        para estimar sua localização aproximada), informações do dispositivo (modelo, sistema
+        operacional, idioma) e cookies/identificadores técnicos semelhantes. Na versão web, o Google
+        AdSense pode coletar dados equivalentes (IP, cookies e identificadores de publicidade do
+        navegador). Para mais detalhes sobre como a Appodeal e suas redes parceiras tratam esses dados,
+        consulte a <AppodealLink>Política de Privacidade da Appodeal</AppodealLink>.
+      </Text>
 
-</body>
-</html>
+      <Section title="3. Como usamos seus dados">
+        Utilizamos suas informações exclusivamente para: autenticar sua identidade, manter sua sessão
+        ativa com segurança, sincronizar seu progresso em tempo real entre o app e a web, permitir o
+        backup dos seus dados e veicular anúncios para manter o serviço gratuito. Não vendemos ou
+        compartilhamos seus dados para marketing de terceiros.
+      </Section>
+
+      <Text style={styles.heading}>4. Publicidade e Cookies</Text>
+      <Text style={styles.paragraph}>
+        Utilizamos o Appodeal (no app) e o Google AdSense (na web) para exibir anúncios. O Appodeal é uma
+        plataforma de mediação que pode veicular anúncios de diferentes redes parceiras. Para isso, esses
+        serviços podem coletar seu <Text style={styles.bold}>identificador de publicidade (Advertising
+        ID)</Text>, seu <Text style={styles.bold}>endereço IP</Text> e usar cookies e identificadores
+        semelhantes para personalizar e medir o desempenho dos anúncios. Você pode gerenciar suas
+        preferências de anúncios acessando adssettings.google.com, e a tela de consentimento exibida pelo
+        próprio app na primeira abertura (para usuários na União Europeia/Reino Unido). Recomendamos a
+        leitura da <AppodealLink>Política de Privacidade da Appodeal</AppodealLink> para mais informações
+        sobre como as redes de anúncios mediadas por ela tratam seus dados.
+      </Text>
+
+      <Section title="5. Armazenamento e segurança">
+        Seus dados de progresso e perfil são armazenados em um banco de dados seguro (Cloudflare D1),
+        vinculados de forma protegida apenas ao seu ID exclusivo da conta Google. Adotamos padrões
+        razoáveis da indústria para proteger suas informações contra acesso não autorizado.
+      </Section>
+
+      <Text style={styles.heading}>6. Seus direitos e exclusão de dados</Text>
+      <Text style={styles.paragraph}>
+        Você tem total controle sobre seus dados e pode gerenciá-los diretamente no aplicativo/site:
+      </Text>
+
+      <Bullet label="Exportação de Dados:">
+        É possível exportar uma cópia do seu histórico e progresso em formato de arquivo na área de
+        configurações.
+      </Bullet>
+
+      <Bullet label="Exclusão Definitiva da Conta:">
+        Você pode excluir permanentemente sua conta e todos os seus dados a qualquer momento clicando
+        no botão "Excluir Conta" nas configurações. O processo é imediato e irreversível.
+      </Bullet>
+
+      <Section title="7. Dados de crianças">
+        O Series Tracker não é direcionado a crianças menores de 13 anos e não coletamos intencionalmente
+        dados desse público.
+      </Section>
+
+      <Section title="8. Alterações nesta política">
+        Esta política pode ser atualizada periodicamente. A data da última modificação estará sempre
+        indicada no topo desta página.
+      </Section>
+
+      <Text style={styles.heading}>9. Contato</Text>
+      <Text style={styles.paragraph}>
+        Dúvidas ou solicitações relacionadas a esta política podem ser enviadas para o e-mail:{' '}
+        {CONTACT_EMAIL}
+      </Text>
+
+      <Text style={styles.footerNote}>
+        Consulte também os nossos Termos de Serviço, disponíveis na tela de Configurações.
+      </Text>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#0D0D0D' },
+  content: { padding: 20, paddingBottom: 60 },
+  title: { fontSize: 22, fontWeight: 'bold', color: '#fff', marginBottom: 4 },
+  updated: { fontSize: 12, color: '#999', marginBottom: 20 },
+  heading: { fontSize: 16, fontWeight: '600', color: '#fff', marginTop: 18, marginBottom: 6 },
+  paragraph: { fontSize: 14, color: '#ccc', lineHeight: 20, marginBottom: 8 },
+  bullet: { fontSize: 14, color: '#ccc', lineHeight: 20, marginBottom: 8, paddingLeft: 8 },
+  bold: { fontWeight: 'bold', color: '#eee' },
+  link: { color: '#6EA8FE', textDecorationLine: 'underline' },
+  footerNote: { fontSize: 13, color: '#888', fontStyle: 'italic', marginTop: 20 },
+});
