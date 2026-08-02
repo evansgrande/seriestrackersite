@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Series Tracker — Cada episódio, registrado</title>
+<meta name="description" content="Marque episódios assistidos, dê nota de 0 a 100 e sincronize entre dispositivos. Baixe o Series Tracker na Play Store.">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0D0D0D;
+    --surface: #1A1A1A;
+    --surface-alt: #242424;
+    --border: #2A2A2A;
+    --primary: #2D9CFF;
+    --primary-dark: #1C6FCC;
+    --accent: #8B5CF6;
+    --text: #FFFFFF;
+    --text-secondary: #A0A0A0;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(45,156,255,0.14), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(139,92,246,0.12), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img, svg { display: block; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ---------- NAV ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(13,13,13,0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+  }
+
+  .brand img {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(45,156,255,0.28); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .btn-ghost:hover { border-color: var(--primary); background: rgba(45,156,255,0.08); }
+
+  .nav-cta { font-size: 13px; padding: 9px 16px; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 88px 0 64px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: rgba(45,156,255,0.10);
+    border: 1px solid rgba(45,156,255,0.25);
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 22px;
+  }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4.6vw, 58px);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+
+  h1 .accent-word {
+    background: linear-gradient(100deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero p.lede {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 46ch;
+    margin-bottom: 34px;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .hero-actions .btn-primary { padding: 14px 24px; font-size: 15px; }
+
+  .hero-web-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 16px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    transition: color 0.15s ease;
+  }
+  .hero-web-link:hover { color: var(--primary); }
+  .hero-web-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+  .store-badge-svg { height: 22px; width: auto; }
+
+  /* ---------- SIGNATURE: interactive episode strip ---------- */
+  .demo-card {
+    background: linear-gradient(180deg, var(--surface), var(--surface-alt));
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 26px 24px 24px;
+    box-shadow: 0 30px 70px -30px rgba(0,0,0,0.7);
+  }
+
+  .demo-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  .demo-show {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .demo-season {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  .demo-progress-num {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--primary);
+  }
+  .demo-progress-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-align: right;
+  }
+
+  .progress-track {
+    height: 6px;
+    background: var(--surface-alt);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 37.5%;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: width 0.35s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* Réplica fiel da tela real de episódios do app (EpisodeCard.js): cada
+     linha traz o badge de nota do TVmaze, título/data e os controles reais
+     de Nota e Revisto (círculo com "+" que vira check quando marcado). */
+  .ep-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .ep-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .ep-row:last-child { border-bottom: none; }
+
+  .ep-main { min-width: 0; }
+
+  .ep-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #F5A623;
+    background: rgba(245,166,35,0.10);
+    border: 1px solid rgba(245,166,35,0.3);
+    padding: 2px 7px;
+    border-radius: 5px;
+    margin-bottom: 6px;
+  }
+
+  .ep-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ep-date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 3px;
+  }
+
+  .ep-nota { text-align: center; }
+  .ep-nota-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .ep-nota-box {
+    width: 44px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .ep-revisto { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .ep-revisto-label { font-size: 11px; color: var(--text-secondary); }
+
+  .ep-check-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    padding: 0;
+  }
+  .ep-check-circle:hover { border-color: var(--primary); }
+  .ep-check-circle.watched {
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+  .ep-check-circle svg { width: 13px; height: 13px; color: #fff; display: none; }
+  .ep-check-circle.watched svg { display: block; }
+
+  .demo-hint {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .demo-hint svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--primary); }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 86px 0; position: relative; }
+
+  .section-head { max-width: 620px; margin-bottom: 52px; }
+
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.2vw, 38px);
+    letter-spacing: -0.015em;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .section-head p { color: var(--text-secondary); font-size: 16px; }
+
+  /* Features */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .features-grid-bottom {
+    grid-template-columns: repeat(2, 1fr);
+    width: 66.666%;
+    margin: 0 auto;
+    border-top: none;
+    border-radius: 18px;
+  }
+
+  .feature {
+    background: var(--surface);
+    padding: 32px 28px;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s ease;
+  }
+  .feature.in-view { opacity: 1; transform: translateY(0); }
+  .feature:hover { background: var(--surface-alt); }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: rgba(45,156,255,0.10);
+    border: 1px solid rgba(45,156,255,0.2);
+  }
+  .feature-icon svg { width: 20px; height: 20px; color: var(--primary); }
+  .features-grid:not(.features-grid-bottom) .feature:nth-child(3n-1) .feature-icon,
+  .features-grid:not(.features-grid-bottom) .feature:nth-child(3n) .feature-icon,
+  .features-grid-bottom .feature:last-child .feature-icon {
+    background: rgba(139,92,246,0.10);
+    border-color: rgba(139,92,246,0.22);
+  }
+  .features-grid:not(.features-grid-bottom) .feature:nth-child(3n-1) .feature-icon svg,
+  .features-grid:not(.features-grid-bottom) .feature:nth-child(3n) .feature-icon svg,
+  .features-grid-bottom .feature:last-child .feature-icon svg { color: var(--accent); }
+
+  .feature h3 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 9px;
+  }
+  .feature p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* CTA band */
+  .cta-band {
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(45,156,255,0.10), rgba(139,92,246,0.10));
+    padding: 56px 48px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .cta-band h2 { margin-bottom: 0; }
+  .cta-band p { color: var(--text-secondary); font-size: 15.5px; max-width: 46ch; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+  }
+  .footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .footer-brand img { width: 24px; height: 24px; border-radius: 6px; }
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+  }
+  .footer-links a { display: inline-flex; align-items: center; gap: 7px; transition: color 0.15s ease; }
+  .footer-links a:hover { color: var(--text); }
+  .footer-links svg { width: 15px; height: 15px; }
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: #5c5c5c;
+    margin-top: 26px;
+  }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; padding-top: 56px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .features-grid-bottom { width: 100%; }
+    .cta-band { padding: 40px 26px; }
+    .footer-row { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="brand" href="#top">
+      <img src="data:image/png;base64,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" alt="">
+      Series Tracker
+    </a>
+    <a class="btn btn-primary nav-cta" href="https://play.google.com/store/apps/details?id=com.seriestracker.app" target="_blank" rel="noopener">Baixar na Play Store</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <section class="hero" style="padding-top:56px;">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Acompanhamento de séries</span>
+        <h1>Não deixe nenhum <span class="accent-word">episódio</span> pra trás.</h1>
+        <p class="lede">Marque o que você já assistiu, dê nota de 0 a 100 e saiba exatamente quando estreia o próximo episódio. Tudo num só lugar, sincronizado entre o celular e a web.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.seriestracker.app" target="_blank" rel="noopener">
+            <svg class="store-badge-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M3.6 2.3 13.6 12l-10 9.7c-.4-.2-.6-.6-.6-1V3.3c0-.4.2-.8.6-1Z" fill="#fff"/><path d="M16.9 9.1 5.2 2.4l9 8.7 2.7-2Z" fill="#fff" opacity=".85"/><path d="M16.9 14.9 5.2 21.6l9-8.7 2.7 2Z" fill="#fff" opacity=".85"/><path d="M20.6 10.8c.6.4.6 1.4 0 1.8l-2.9 1.7-2.9-2.3 2.9-2.3 2.9 1.1Z" fill="#fff" opacity=".65"/></svg>
+            Baixar na Play Store
+          </a>
+          <a class="btn btn-ghost" href="#funcionalidades">Ver funcionalidades</a>
+        </div>
+        <a class="hero-web-link" href="https://series-tracker.series-tracker-sync.workers.dev/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
+          Versão Web/iOS
+        </a>
+      </div>
+
+      <div class="demo-card" id="demo-card">
+        <div class="demo-head">
+          <div>
+            <div class="demo-show">The Bear</div>
+            <div class="demo-season">Temporada 1</div>
+          </div>
+          <div style="text-align:right">
+            <div class="demo-progress-num" id="demo-progress-num">3/8</div>
+            <div class="demo-progress-label">episódios vistos</div>
+          </div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="demo-progress-fill"></div></div>
+        <div class="ep-list" id="ep-list"></div>
+        <div class="demo-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Toque no círculo pra marcar como revisto
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="funcionalidades">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">Funcionalidades</div>
+        <h2>Feito pra quem assiste série de verdade.</h2>
+        <p>Do primeiro episódio ao último, com estatísticas e listas do seu jeito.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3>Progresso por episódio</h3>
+          <p>Marque cada episódio como assistido ou reassistido, com contador próprio pra cada um.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.3 6.2 20l1.1-6.5-4.7-4.6 6.5-1L12 2l2.9 5.9 6.5 1-4.7 4.6L18 20z"/></svg>
+          </div>
+          <h3>Notas de 0 a 100</h3>
+          <p>Avalie cada episódio com uma nota manual, exatamente do jeito que você quiser.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h12.8"/><path d="M4 17h16"/></svg>
+          </div>
+          <h3>Listas personalizadas</h3>
+          <p>Organize suas séries em quantas listas quiser: maratonas, favoritas, próximas — do seu jeito.</p>
+        </div>
+      </div>
+
+      <div class="features-grid features-grid-bottom">
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 9l-5 5-3-3-4 4"/></svg>
+          </div>
+          <h3>Perfil com estatísticas</h3>
+          <p>Total de episódios vistos, séries iniciadas, reassistidos e sua nota média, tudo num lugar só.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 4v5h-5"/></svg>
+          </div>
+          <h3>Sincronização entre dispositivos</h3>
+          <p>Entre com sua conta Google e continue de onde parou, no app ou na versão web.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Comece a acompanhar suas séries hoje.</h2>
+        <p>Grátis, sem complicação. Baixe o Series Tracker e continue de onde parou.</p>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.seriestracker.app" target="_blank" rel="noopener" style="padding:14px 26px; font-size:15px;">
+          Baixar na Play Store
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <a class="footer-brand" href="#top">
+        <img src="data:image/png;base64,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" alt="">
+        Series Tracker
+      </a>
+      <div class="footer-links">
+        <a href="https://play.google.com/store/apps/details?id=com.seriestracker.app" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          Play Store
+        </a>
+        <a href="mailto:seriestrackeraplicativo@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          seriestrackeraplicativo@gmail.com
+        </a>
+        <a href="https://series-tracker.series-tracker-sync.workers.dev/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
+          Versão Web/iOS
+        </a>
+      </div>
+    </div>
+    <div class="footer-copy">© <span id="year"></span> Series Tracker. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Signature interactive demo: episode rows (réplica da tela real do app)
+  const checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+  const list = document.getElementById('ep-list');
+  const episodes = [
+    { title: 'Episódio 1', rating: '7.4', date: '23/06/2023', nota: '92' },
+    { title: 'Episódio 2', rating: '8.0', date: '23/06/2023', nota: '88' },
+    { title: 'Episódio 3', rating: '7.8', date: '23/06/2023', nota: '—' },
+    { title: 'Episódio 4', rating: '8.3', date: '23/06/2023', nota: '—' },
+    { title: 'Episódio 5', rating: '7.9', date: '23/06/2023', nota: '—' },
+    { title: 'Episódio 6', rating: '8.1', date: '23/06/2023', nota: '—' },
+    { title: 'Episódio 7', rating: '7.6', date: '23/06/2023', nota: '—' },
+    { title: 'Episódio 8', rating: '8.6', date: '23/06/2023', nota: '—' },
+  ];
+  const total = episodes.length;
+  let watchedSet = new Set([1, 2, 3]);
+
+  function render() {
+    list.innerHTML = '';
+    episodes.forEach((ep, idx) => {
+      const i = idx + 1;
+      const isWatched = watchedSet.has(i);
+
+      const row = document.createElement('div');
+      row.className = 'ep-row';
+
+      row.innerHTML = `
+        <div class="ep-main">
+          <span class="ep-badge">TVmaze ${ep.rating}</span>
+          <div class="ep-title">${i}. T1 • ${ep.title}</div>
+          <div class="ep-date">Lançamento: ${ep.date}</div>
+        </div>
+        <div class="ep-nota">
+          <div class="ep-nota-label">Nota</div>
+          <div class="ep-nota-box">${ep.nota}</div>
+        </div>
+        <div class="ep-revisto">
+          <div class="ep-revisto-label">Revisto</div>
+          <button class="ep-check-circle${isWatched ? ' watched' : ''}" role="button" aria-pressed="${isWatched}" aria-label="Episódio ${i}${isWatched ? ', revisto' : ', não revisto'}">
+            ${checkSvg}
+          </button>
+        </div>
+      `;
+
+      const btn = row.querySelector('.ep-check-circle');
+      btn.addEventListener('click', () => toggle(i));
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(i); }
+      });
+
+      list.appendChild(row);
+    });
+
+    const count = watchedSet.size;
+    document.getElementById('demo-progress-num').textContent = count + '/' + total;
+    document.getElementById('demo-progress-fill').style.width = (count / total * 100) + '%';
+  }
+
+  function toggle(i) {
+    if (watchedSet.has(i)) watchedSet.delete(i); else watchedSet.add(i);
+    render();
+  }
+
+  render();
+
+  // Reveal features on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.feature').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
